@@ -1,0 +1,137 @@
+
+import java.util.Scanner;
+import java.util.Set;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ * @author uvgm
+ */
+public class main {
+    public static void main (String[] args) {
+    Scanner teclado = new Scanner (System.in);
+    Factory factory = new Factory();
+ //atributos
+    boolean java, web, celular;
+    String nombre = "";
+         
+  // Se muestra e menu
+  System.out.println("Bienvenido!");
+  System.out.println("1. HashSet");
+  System.out.println("2. TreeSet");
+  System.out.println("3. LinkedHashSet");
+  int n = teclado.nextInt();//opcion lleva el numero del set que se eligio
+  while  (n != 3 && n != 2 && n!= 1){
+	System.out.println("Por favor ingrese una opcion valida:");
+	System.out.println("Intente de nuevo");	
+	n = teclado.nextInt();
+  } 
+  Set elegido = factory.getSet(n);
+  teclado.nextLine();
+																		
+  int inicio= 0;
+  		while (inicio ==0){   
+  			System.out.println("Ingrese el nombre: ");
+  			nombre =teclado.nextLine();//se guarada el nombre
+  			//se pregunta por sus conociemitos
+  			System.out.println("Sabe Java?  1.Si    2.No");
+  			int Sabej = teclado.nextInt();
+                        
+			 while  (Sabej != 1 && Sabej != 2){
+			System.out.println("Por favor ingrese una opcion valida:");
+			 System.out.println("Intente de nuevo");
+			Sabej = teclado.nextInt();
+			 }
+			 
+  			if (Sabej==1){
+  				java = true;
+  			}
+  			else {
+  				java = false;
+  			}
+                        System.out.println("Sabe Web?  1.Si    2.No");
+  			int Sabew = teclado.nextInt();
+                        
+			 while  (Sabew != 1 && Sabew != 2){
+			System.out.println("Por favor ingrese una opcion valida:");
+			 System.out.println("Intente de nuevo");
+			Sabew = teclado.nextInt();
+			 }
+			 
+  			if (Sabew==1){
+  				web = true;
+  			}
+  			else {
+  				web = false;
+  			}
+                        
+                        System.out.println("Sabe Celular?  1.Si    2.No");
+  			int Sabec = teclado.nextInt();
+                        
+			 while  (Sabec != 1 && Sabec != 2){
+			System.out.println("Por favor ingrese una opcion valida:");
+			 System.out.println("Intente de nuevo");
+			Sabec = teclado.nextInt();
+			 }
+			 
+  			if (Sabec==1){
+  				celular = true;
+                                        
+  			}
+  			else {
+  				celular = false;
+  			}
+
+  			// clasificamos todos dependiendo que alla elegido el usuario
+  			switch(n){
+  			case 1:		
+                                ((Hashsets) elegido).contenido(nombre, java, web, celular);
+  				break;
+  			case 2:		
+  				((Treesets)elegido).contenido(nombre, java, web, celular);
+  				break;
+  			case 3:		
+  				((LinkedHashsets)elegido).contenido(nombre, java, web, celular);
+  				break;
+  			}
+  		//se pregunta si se quiere agregar mas programadores
+  			System.out.println("Quiere agregar? 1.Si  2.No");
+  			int r = teclado.nextInt();
+			 while  (r!= 1 && r != 2){
+			System.out.println("Por favor ingrese una opcion valida:");
+			 System.out.println("Intente de nuevo");
+			r = teclado.nextInt();
+			 }
+                     if(r==1){inicio=0;}
+                     if(r==2){inicio=1;}
+                 
+  		}
+  		// Aqui se crea el objeto de la clase que opera los conjuntos
+  		// Se manda como parametros los 3 sets para cada clasificaciond de programador
+  		Desarrolladores des = null;
+  		switch(n){
+  			case 1:
+  				des = new Desarrolladores(((Hashsets) elegido).getCelular(), ((Hashsets) elegido).getWeb(), ((Hashsets) elegido).getJava());            
+                	break;
+  			case 2:
+  				des = new Desarrolladores(((Treesets) elegido).getCelular(), ((Treesets) elegido).getWeb(), ((Treesets) elegido).getJava());            
+                	break;
+  			case 3:
+  				des = new Desarrolladores(((LinkedHashsets)elegido).getCelular(), ((LinkedHashsets) elegido).getWeb(), ((LinkedHashsets) elegido).getJava());            
+                	break;
+                
+                }
+  			des.Resultados1();
+                        des.Resultados2();
+                        des.Resultados3();
+                        des.Resultados4();
+                        des.Resultados5();
+                        des.Resultados6y7();
+  			
+  
+  }
+}
