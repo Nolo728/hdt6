@@ -1,0 +1,128 @@
+/*
+ * Universidad del Valle de guatemala
+ * michelle Bartra 14384
+ * Manolo Benegas 14180
+ * Desarrolladores
+ * Guarda todo los desarrolladores y nos imprime las respuestas que le pidamos
+ */
+
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+
+public class Desarrolladores {
+
+	// se inician los 3 tipos de desarroladores que hay
+	private Collection<? extends Set> Celular;
+	private Collection<? extends Set> Web;
+	private Collection<? extends Set> Java;
+	// Set que sirve para guardar los resultados de las operaciones
+	private HashSet<Set> Todo = new HashSet<Set>();  
+
+	// Constructor, recibirá los tres sets y los guarda como atributos de la clase 
+public Desarrolladores(Set Celular1, Set Web1, Set Java1){
+	Web = Web1;
+	Java = Java1;
+	Celular = Celular1;
+	
+}
+ 
+public void  Resultados1(){
+    System.out.println("Java, web y celulares.");
+    Todo.addAll(Java); //todos los que estan en java
+    Todo.retainAll(Web);// se quedan los que tambien estan en web
+    Todo.retainAll(Celular);//se quedan los que estan en celular
+    System.out.println(Todo);//imprime todo
+    Todo.clear(); // Se vacia 
+}
+  public void  Resultados2(){
+    System.out.println("Desarrolladores que saben Java y no Web");
+    Todo.addAll(Java);//agarra todos los que estan en java
+    Todo.removeAll(Web);//pero quita todos los que estan en el conjunto de web
+    System.out.println(Todo);//lo imprime
+    Todo.clear();//lo limpia
+  }
+  public void  Resultados3(){
+    // Respuesta a pregunta 3
+    System.out.println("Desarrolladores que saben Web y Celulares, pero no Java ");
+    Todo.addAll(Web);// agarra a todos loq ue estan en web
+    Todo.retainAll(Celular);// se queda con los que estan en celulares
+    Todo.removeAll(Java);// borra los que estan en java
+    System.out.println(Todo);// imprime
+    Todo.clear();//limia
+  }
+  
+  public void  Resultados4(){
+    // Respuesta a pregunta 4
+    System.out.println("Desarrolladores que saben Web o Celulares, pero no Java ");
+    Todo.addAll(Web);//agarra todos los de web
+    Todo.addAll(Celular);//agarra todos los de celulares
+    Todo.removeAll(Java);//quita todos los de java
+    System.out.println(Todo);
+    Todo.clear();//limpia
+  }
+  
+ public void  Resultados5(){   
+ // Respuesta a pregunta 5
+    Todo.addAll(Web);// se dice que todo tiene a el conjunto web
+    if (Todo.containsAll(Java) == false)// si todo los de java esta en web
+        System.out.println("Java no es un subconjunto de web");
+    else
+        System.out.println("Java es un subconjunto de web");
+    System.out.println();
+ }
+ 
+    public void  Resultados6y7(){
+ // Respuesta a pregunta 6 y 7
+//usamos .size
+    int amountWeb = Web.size();//la cantidad de elementos en web
+    int amountJava = Java.size();//la cantidad de elementos en java
+    int amountCelular = Celular.size();// la cantidad de elementos en celular
+    
+    
+    if(amountWeb > amountJava){//web es mayor a java
+        if(amountWeb>amountCelular){ //hay mas web que celulares
+           System.out.println("Hay más desarrolladores Web");
+           System.out.println("Son: ");
+           List<String> lista = new ArrayList<String>((Set)Web);// lista de String con contenido de web
+           Collections.sort(lista, Collections.reverseOrder());//uso sort de Collections para ordenar 
+           System.out.println(lista); // Se imprime 
+           
+        }
+        else{//si hay mas celulares que web
+           System.out.println("Hay mas desarrolladores de Celulares");
+           System.out.println("son:");
+           List<String> listaParaOrdenar = new ArrayList<String>((Set)Celular);//lista de String con contenido de celular
+           Collections.sort(listaParaOrdenar, Collections.reverseOrder());//uso sort de Collections para ordenar 
+           System.out.println(listaParaOrdenar); // Se imprime 
+        }}
+        else{ // si hay mas java que web 
+    	 if(amountJava>amountCelular){//si hay más java que celulares
+           System.out.println("Hay mas desarrolladores Java");
+           System.out.println("son:");
+           List<String> listaParaOrdenar = new ArrayList<String>((Set)Java);//lista de String con contenido de java
+           Collections.sort(listaParaOrdenar, Collections.reverseOrder());//uso sort de Collections para ordenar 
+           System.out.println(listaParaOrdenar); // Se imprime 
+          
+     }
+     else{ //si hay mas celualres que java
+           if(amountCelular>amountJava){
+               System.out.println("Hay mas desarrolladores de Celulares");
+       
+           System.out.println("Estos son los desarrolladores");
+           List<String> listaParaOrdenar = new ArrayList<String>((Set)Celular);//lista de String con contenido de celular
+           Collections.sort(listaParaOrdenar, Collections.reverseOrder());//uso sort de Collections para ordenar 
+           System.out.println(listaParaOrdenar); }// Se imprime 
+           else{
+           System.out.println("Todos tienen la misma cantidad");
+           }
+     }
+     
+    }
+}
+}
