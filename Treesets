@@ -1,0 +1,99 @@
+/*
+ * Universidad del Valle de guatemala
+ * michelle Bartra 14384
+ * Manolo Benegas 14180
+ * Treeset
+ */
+
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Treesets implements Set{
+   private TreeSet<String> Web = new TreeSet<String>();// se inician los treeset de web
+    private TreeSet<String> Java = new TreeSet<String>();// se inicia los treesetde java
+    private TreeSet<String> Celular = new TreeSet<String>();// se inica el treeset de celular
+    
+    //sets y gets
+    public TreeSet<String> getWeb(){ return Web;}
+    public TreeSet<String> getJava(){return Java;}
+    public TreeSet<String> getCelular(){return Celular;}
+    public void setJava(TreeSet<String> java) {Java = java;}
+    public void setCelular(TreeSet<String> celular) {Celular = celular;}
+    public void setweb(TreeSet<String> web) {Web = web;}
+    
+   //guarda todo donde va
+    public void contenido(String nombre, boolean java, boolean web, boolean celular){
+        if (java==true){Java.add(nombre);}
+        if(web==true){Web.add(nombre);}
+        if (celular==true){Celular.add(nombre);}
+        
+    }  
+
+    @Override
+    public int size() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isEmpty() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Iterator iterator() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Object[] toArray() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Object[] toArray(Object[] a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean add(Object e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean containsAll(Collection c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean addAll(Collection c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean retainAll(Collection c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean removeAll(Collection c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void clear() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}
