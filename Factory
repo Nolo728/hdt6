@@ -1,0 +1,26 @@
+/*
+ * Universidad del Valle de guatemala
+ * Michelle Bartra 14384
+ * Manolo Benegas 14180
+ * Factory
+ * El usuario dice cual quiere
+ */
+
+import java.util.Set;
+
+public class Factory {
+
+	public   Set getSet(int q){
+		// Dependiendo del parametro que se le envie al factory, se crea un conjuntos de los sets apropiados.
+		if (q == 1){
+			return new Hashsets();}
+		
+		if (q == 2){
+			return new Treesets();
+		}
+		if (q == 3){
+			return new LinkedHashsets();
+		}
+		return null;
+	}
+}  
